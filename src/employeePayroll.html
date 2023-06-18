@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="employeePayroll.css">
     <script defer src="employeepayroll.js"></script>
     <script defer src="EmployeePayrollData.js"></script>
+    <script src="./siteProperties.js"></script>
+    <script src="./utility.js"></script>
 </head>
 <body>
     <header class="header-content header">
@@ -23,7 +25,7 @@
     </header>
 
     <div class="form-content">
-    <form class="form" action="#" onreset="resetForm()" onsubmit="save()">
+    <form class="form" action="#" onreset="resetForm()" onsubmit="save(event)">
         <div class="form-head">
             Employee Payroll form </div>
             <div class="row-content">
@@ -83,8 +85,8 @@
                     <output class="salary-output text" for="salary">400000</output>
                  </div>
                  <div class="row-content">
-                    <label class="label text" for="startDate">Start Date</label>
-                    <div>
+                    <label class="label text"  for="startDate">Start Date</label>
+                    <div id="date">
                         <select id="day" name="Day">
                             <option value="Day">Day</option>
                             <option value='01'>01</option>
@@ -157,9 +159,11 @@
                         <button type="reset" class="resetButton button">Reset</button>
                     </div>
                 </div>
-        
+                
     </form>
     </div>
    
 </body>
 </html>
+
+

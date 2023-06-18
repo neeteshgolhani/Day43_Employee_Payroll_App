@@ -59,8 +59,15 @@ const save = (event) => {
     employeePayrollobj._department = getSelectedValues('[name=department]');
     employeePayrollobj._salary = getInputValueById('#salary');
     employeePayrollobj._notes = getInputValueById('#notes');
-    let date = getInputValueById('#date')+" " +getInputValueById('#month')+" "+getInputValueById('#year');
-    employeePayrollobj._startDate = date;
+    let date = getInputValueById('#day')+" " +getInputValueById('#month')+" "+getInputValueById('#year');
+    const dateString = date;
+const dateParts = dateString.split(" ");
+const day = parseInt(dateParts[0]);
+const month = parseInt(dateParts[1]) - 1; // Months are zero-based (0 - 11)
+const year = parseInt(dateParts[2]);
+
+const temp = new Date(year, month, day);
+    employeePayrollobj._startDate = temp;
   }
 
   function createAndUpdateStorage(employeePayrollData) {
@@ -106,8 +113,8 @@ const save = (event) => {
     employeePayrollData.notes = employeePayrollobj._notes;
   
   try{
-    employeePayrollData.startDate = 
-                      new Date(Date.parse(employeePayrollobj._startDate));
+    employeePayrollData.startDate = employeePayrollobj._startDate;  
+                    //  new Date(Date.parse());
   } catch (e) {
     setTextValue('.date-error', e);
     throw e;
@@ -144,6 +151,7 @@ const save = (event) => {
       const getSelectedValues = (propertyValue) => {
           let allItems = document.querySelectorAll(propertyValue);
           let selItems = [];
+          
           allItems.forEach(item => {
               if(item.checked) selItems.push(item.value);
           });
