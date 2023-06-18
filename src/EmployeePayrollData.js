@@ -57,19 +57,19 @@ class EmployeePayrollData {
     }
 
     set startDate(startDate) {
-        // var today = new Date();
-        // const one_month_ago = new Date(today.setDate(today.getDate()-30));
-        // today = new Date();
-        // if(today < startDate || startDate < one_month_ago) {
-        //     throw 'Start date is invalid!';
-        // }
-        // else {
-        //     this._startDate = startDate;
-        let now = new Date();
-        if(startDate > now) throw 'start Date is a Future Date!';
-        var diff = Math.abs(now.getTime() - startDate.getTime());
-        if(diff / (1000 * 60 * 60 * 24) > 30)
-        throw 'Start Date is beyond 30 Days!';
+        // let now = new Date();
+        // if(startDate > now) throw 'start Date is a Future Date!';
+        // var diff = Math.abs(now.getTime() - startDate.getTime());
+        // if(diff / (1000 * 60 * 60 * 24) > 30)
+        // throw 'Start Date is beyond 30 Days!';
+        // this._startDate = startDate;
+        let actualDate = new Date(startDate).getTime();
+        let currentDate = new Date().getTime();
+        if (actualDate > currentDate)
+            throw 'Start date is a Future date!';
+        var diff = Math.abs(actualDate-startDate);
+        if(diff / (1000*60*60*24) > 30)
+            throw 'Start date is beyond 30 Days!';
         this._startDate = startDate;
     }
     
