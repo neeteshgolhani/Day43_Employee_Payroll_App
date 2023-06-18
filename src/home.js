@@ -48,10 +48,12 @@ document.querySelector('#table-display').innerHTML = innerHtml;
     if(!employeePayrollData) return;
     const index = employeePayrollList.map(empData => empData._id).indexOf(employeePayrollData._id);
     employeePayrollList.splice(index, 1);
-    localStorage.setItem("EmployeePayrollList", JASON.stringifyDate(employeePayrollList));
+    localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList));
     document.querySelector(".emp-count").textContent = employeePayrollList.length;
     createInnerHtml();
 
   }
+  
+  
   
   
