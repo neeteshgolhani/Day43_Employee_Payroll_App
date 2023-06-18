@@ -1,19 +1,5 @@
-const salary = document.querySelector('#salary');
-const output = document.querySelector('.salary-output');
-output.textContent = salary.value;
-salary.addEventListener('input', function(){
-    output.textContent = salary.value;
-});
 class EmployeePayrollData {
-    constructor(...params){
-    this.name = params[0];
-    this.profileImage = params[1];
-    this.gender = params[2];
-    this.department = params[3];
-    this.salary = params[4];
-    this.startDate = params[5];
-    this.notes = params[6];
-}
+   
     get name(){
         return this._name;
     }
@@ -23,7 +9,7 @@ class EmployeePayrollData {
          if(nameRegex.test(name))
          this._name = name;
          else
-         throw "**** Name is Incorrect****";
+         throw "Name is Incorrect";
     }
     get profileImage(){
         return this._profileImage;
@@ -37,12 +23,8 @@ class EmployeePayrollData {
         return this._gender;
     }
     set gender(gender){
-        let genderRegex = RegExp('^[female|male]+$');
-        if(genderRegex.test(gender))
         this._gender = gender;
-        else
-        throw "**** Gender is Incorrect****";
-    }
+         }
 
     get department(){
         return this._department;
@@ -55,17 +37,21 @@ class EmployeePayrollData {
         return this._salary;
     }
     set salary(salary){
-        let salaryRegex = RegExp('^[1-9][0-9]*$');
-        if(salaryRegex.test(salary))
-        this._salary = salary;
-        else
-        throw "**** Salary is Incorrect****";
-    }
+        this._salary = salary
+      }
     get startDate(){
         return this._startDate;
     }
     set startDate(startDate){
-        this._startDate = startDate;
+        let difference = Date.now() - startDate;
+        difference = Math.ceil(difference / (1000 * 60 * 60 * 24));
+        if(difference > 30 || difference < 0){
+            throw "Start Date is Invalid";
+        }
+        else{
+            this._startDate = startDate;
+        }
+        
     }
     get notes(){
         return this._notes;
@@ -124,4 +110,3 @@ class EmployeePayrollData {
             console.error(e)
         }
         }
-    

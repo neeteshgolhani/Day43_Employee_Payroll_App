@@ -1,5 +1,4 @@
 body {
-    
     margin: 0;
     height: 100%;
 }
@@ -115,7 +114,6 @@ label {
 .profile-radio-content {
     display: flex;
     flex-direction: row;
-    margin-left: 42px;
 }
 
 .profile-radio-content > label {
@@ -128,13 +126,6 @@ label {
     width: 40px;
     border-radius: 50%;
     margin-left: 12px;
-}
-error-output{
-    color: red;
-    margin-left: 43px;
-    font-size: 12px;
-    font-style: i;
-
 }
 select {
     padding: 12px;

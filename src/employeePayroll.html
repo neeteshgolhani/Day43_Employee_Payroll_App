@@ -8,12 +8,13 @@
     <title>Employee Payroll form</title>
     <link rel="stylesheet" href="employeePayroll.css">
     <script defer src="employeepayroll.js"></script>
+    <script defer src="EmployeePayrollData.js"></script>
 </head>
 <body>
     <header class="header-content header">
         <div class="logo-content">
           
-            <img src="https://t3.ftcdn.net/jpg/01/59/39/40/360_F_159394081_0PFpyvtIjd9DOcM9bvZiiDt3pGYtapfR.jpg" alt="" width="40" height="40">
+            <img src=".\Images\logo.png" alt="">
             <div>
                 <span class="emp-text">Employee</span><br>
                 <span class="emp-text emp-payroll">PAYROLL</span>
@@ -22,7 +23,7 @@
     </header>
 
     <div class="form-content">
-    <form class="form" action="#" onsubmit="save();return false">
+    <form class="form" action="#" onsubmit="save(event);return false">
         <div class="form-head">
             Employee Payroll form </div>
             <div class="row-content">
