@@ -57,16 +57,22 @@ class EmployeePayrollData {
     }
 
     set startDate(startDate) {
-        var today = new Date();
-        const one_month_ago = new Date(today.setDate(today.getDate()-30));
-        today = new Date();
-        if(today < startDate || startDate < one_month_ago) {
-            throw 'Start date is invalid!';
-        }
-        else {
-            this._startDate = startDate;
+        // var today = new Date();
+        // const one_month_ago = new Date(today.setDate(today.getDate()-30));
+        // today = new Date();
+        // if(today < startDate || startDate < one_month_ago) {
+        //     throw 'Start date is invalid!';
+        // }
+        // else {
+        //     this._startDate = startDate;
+        let now = new Date();
+        if(startDate > now) throw 'start Date is a Future Date!';
+        var diff = Math.abs(now.getTime() - startDate.getTime());
+        if(diff / (1000 * 60 * 60 * 24) > 30)
+        throw 'Start Date is beyond 30 Days!';
+        this._startDate = startDate;
     }
-    }
+    
     get notes() {
         return this._notes;
     }
@@ -77,8 +83,9 @@ class EmployeePayrollData {
 
 
     toString() {
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        const employeeDate = this.startDate == undefined ? "undefined" : this.startDate.toLocaleDateString("en-us", options);
+        const options = { year: 'numeric', month: 'short', day: 'numeric' };
+        const employeeDate = !this.startDate ? "undefined" : 
+                                this.startDate.toLocaleDateString("en-GB", options);
         return "Id = " + this.id + ", Name = " + this.name + ", Profile Image = " + this.profileImage + ", Gender = " + this.gender + ", Department = " + this.department + ", Salary = " + this.salary + ", Start Date = " + employeeDate + ", Notes = " + this.notes;
     }
 }
