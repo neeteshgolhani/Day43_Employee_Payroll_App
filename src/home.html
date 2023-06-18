@@ -1,64 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Payroll App</title>
-    <script defer src ="home.css"></script>
-</head>
-<body>
-     <!-- UC 1 -->
- <header class="header-content header">
+ <html lang="en"> 
+    <head>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:ital, wght@0, 100;0, 200;0, 300;0,400;0,600; 1,500&display=swap"
+        rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Roboto:wght@300, 400, 500, 600&display=swap" rel="stylesheet">
+        <title>Employee Payroll App</title>
+        <link rel="stylesheet" href="home.css"> 
+        <!-- <script defer src="../js/new_home.js"></script> -->
+    </head> 
+    <body>
+    <!-- UC 1 --> 
+        <header class="header-content header"> 
             <div class="logo-content">
-                 <img src=".\Images\logo.png" alt="">
+                <img src="./Images/logo.png" alt="Emp Logo">
                 <div>
-                    <span class="emp-text">Employee</span><br>
+                    <span class="emp-text">EMPLOYEE</span><br>
                     <span class="emp-text emp-payroll">PAYROLL</span>
-                </div>
+                 </div>
             </div>
         </header>
-          <!-- UC 2 -->
-  <div class="main-content">
-    <div class="header-content employee-header">
-      <div class="emp-detail-text">
-        Employee Details
-        <div class="emp-count">10</div>
-      </div>
-      <a href=".\employeePayroll.html" class="add-button">
-        <img src=".\Images\add-24px.svg" alt="">Add User</a>
-    </div>
-  </div>
-     <!-- UC 3 -->
-     <div class="table-main">
-        <table id="table-display" class="table">
-          <tr>
-            <th>Profile</th>
-            <th>Name</th>
-            <th>Gender</th>
-            <th>Department</th>
-            <th>Salary</th>
-            <th>Start Date</th>
-            <th>Actions</th>
-          </tr>
-          <tr>
-            <td><img class="profile" src=".\Images\Ellipse -3.png" alt="profile_img-1"></td>
-            <td>Prathamesh Adam</td>
-            <td>Male</td>
-            <td>
-              <div class="dept-label">HR</div>
-              <div class="dept-label">Finance</div>
-              <div class="dept-label">Engineer</div>
-            </td>
-            <td>&#8377; 4000000</td>
-            <td>20 Nov 2020</td>
-            <td>
-              <img src=".\Images\delete-black-18dp.svg" alt="delete" id="1" onclick="remove(this)">
-              <img src=".\Images\create-black-18dp.svg" alt="edit" id="1" onclick="update(this)">
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-</body>
+        <div class="main-content">
+            <!-- UC 2 --> 
+            <div class="header-content"> 
+                <div class="emp-detail-text"> 
+                    Employee Details 
+                </div> 
+                <a href="./employeePayroll.html" class="add-button">
+                <img src="./Images/add-24px.svg" alt="">Add User</a> 
+            </div> <!-- header-content -->
+            <table id="table-display" class="table">
+                <!-- UC 3 --> 
+                
+            </table>
+        </div>
+        <script src="./home.js"></script>
+        <script src="./utility.js"></script>
+        <script src="./siteProperties.js"></script>
+        <script src="./employeepayroll.js"></script>
+    </body>
 </html>

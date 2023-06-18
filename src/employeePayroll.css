@@ -1,4 +1,5 @@
 body {
+    
     margin: 0;
     height: 100%;
 }
@@ -132,7 +133,7 @@ error-output{
     color: red;
     margin-left: 43px;
     font-size: 12px;
-    font-style: italic;
+    font-style: i;
 
 }
 select {
@@ -256,5 +257,8 @@ select {
     }
         
     }
+
+
+
 
 
